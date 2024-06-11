@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    background-color: orange;
+    padding: 10px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contact span {
+    margin-right: 10px;
+}
+
+.phone {
+    font-size: 20px;
+}
+
+.hours {
+    font-size: 14px;
+}
+
+.delivery {
+    font-size: 16px;
+}
+
+
+.login button {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login button:hover {
+    background-color: darkorange;
+}
+
+.divider {
+    height: 2px;
+    background-color: white;
+    margin: 0 20px;
+}
+
+.pizza {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.menu {
+    flex: 2;
+}
+
+.menu h2 {
+    text-align: center;
+}
+
+.pizza-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pizza-item {
+    width: 30%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.pizza-item img {
+    width: 100%;
+    height: auto;
+}
+
+.pizza-details {
+    padding: 10px;
+}
+
+.pizza-details h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: orange;
+}
+
+.pizza-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.new, .popular {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+.popular {
+    background-color: green;
+}
+
+.btn-order {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-order:hover {
+    background-color: darkorange;
+}
+
+.cart {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.cart-header h2 {
+    margin: 0;
+}
+
+.clear-cart {
+    color: orange;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cart-items {
+    padding: 10px 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-details {
+    flex: 2;
+}
+
+.item-details h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    color: orange;
+}
+
+.item-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.item-controls {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-remove, .btn-add, .btn-delete {
+    background-color: orange;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-remove:hover, .btn-add:hover, .btn-delete:hover {
+    background-color: darkorange;
+}
+
+.item-quantity {
+    margin: 0 10px;
+}
+
+.item-image {
+    flex: 1;
+}
+
+.item-image img {
+    width: 50px;
+    height: auto;
+}
+
+.cart-summary {
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    text-align: right;
+}
+
+.cart-summary p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.cart-summary .total-price {
+    font-weight: bold;
+    color: orange;
+}
+
+.btn-order {
+    width: 100%;
+    padding: 15px 0;
+    background-color: orange;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 0 8px 8px;
+}
+
+.btn-order:hover {
+    background-color: darkorange;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .pizza-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pizza-item {
+        width: 80%;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    .cart {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
