@@ -71,10 +71,11 @@ body {
     margin: 10px 0;
 }
 
-.pizza-title {
+.pizza-header {
     color: white;
     font-size: 14px;
-    text-align: left;
+    margin-left: -10px;
+    margin-top: -5px;
 }
 
 .phone {
@@ -104,226 +105,178 @@ main {
     flex-direction: column;
 }
 
-.menu {
-    flex: 2;
-}
-
-.menu h2 {
-    text-align: center;
-}
-
-.pizza-container {
+.pizza-menu {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .pizza-item {
-    width: 30%;
     background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin-bottom: 20px;
+    width: 300px;
+    margin: 10px;
     text-align: center;
+    position: relative;
+    padding: 20px;
 }
 
-.pizza-item img {
+.pizza-labels {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+.pizza-label {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 5px 0;
+    display: inline-block;
+    z-index: 0;
+}
+
+.pizza-header {
+    padding: 10px 10px 0px 10px;
+    position: relative;
+}
+
+.pizza-icon {
     width: 100%;
     height: auto;
 }
 
-.pizza-details {
-    padding: 10px;
+.pizza-title {
+    font-size: 20px;
+    color: chocolate;
+    margin: 10px 5px 5px;
+    text-align: left;
 }
 
-.pizza-details h3 {
-    margin: 10px 0;
-    font-size: 18px;
-    color: orange;
-}
-
-.pizza-details p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.new, .popular {
-    background-color: red;
-    color: white;
-    border-radius: 4px;
-    padding: 2px 8px;
+.pizza-type {
+    text-align: left;
     font-size: 12px;
+    color: lightgray;
+    margin-bottom: 10px;
+    margin-left: 5px;
 }
 
-.popular {
-    background-color: green;
+
+.pizza-content {
+    padding: 0 10px 10px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
 }
 
-.btn-order {
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.btn-order:hover {
-    background-color: darkorange;
-}
-
-.cart {
-    flex: 1;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-left: 20px;
-}
-
-.cart-header {
+.pizza-sizes {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+.pizza-size {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-}
-
-.cart-header h2 {
-    margin: 0;
-}
-
-.clear-cart {
-    color: orange;
-    text-decoration: none;
     font-size: 14px;
 }
 
-.cart-items {
-    padding: 10px 20px;
+.pizza-size-diameter::before {
+    content: "\D8"; /* символ діаметру */
+    margin-right: 3px;
 }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+.pizza-size-weight::before {
+ /* символ ваги */
+    margin-right: 3px;
 }
 
-.item-details {
-    flex: 2;
+.pizza-size-price {
+    font-size: 20px;
+    color: #333;
+    margin-top: 5px;
 }
 
-.item-details h3 {
-    margin: 0 0 5px;
-    font-size: 16px;
-    color: orange;
-}
-
-.item-details p {
-    margin: 5px 0;
+.pizza-size-hrn {
+    font-size: 14px;
     color: #666;
+    margin-top: -5px;
 }
 
-.item-controls {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.btn-remove, .btn-add, .btn-delete {
-    background-color: orange;
+.pizza-size-button {
+    background-color: chocolate;
+    color: white;
     border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.3s;
+}
+
+.pizza-size-button:hover {
+    background-color: darkorange;
+}
+
+.all-pizzas {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.pizza-count {
+    font-size:12px;
+    background-color: orange;
     color: white;
     border-radius: 50%;
-    padding: 5px 10px;
-    cursor: pointer;
+    padding: 5px;
+    margin-left: 5px;
 }
 
-.btn-remove:hover, .btn-add:hover, .btn-delete:hover {
-    background-color: darkorange;
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
-.item-quantity {
-    margin: 0 10px;
-}
-
-.item-image {
-    flex: 1;
-}
-
-.item-image img {
-    width: 50px;
-    height: auto;
-}
-
-.cart-summary {
-    padding: 10px 20px;
-    background-color: #f8f8f8;
-    text-align: right;
-}
-
-.cart-summary p {
-    margin: 0;
-    font-size: 16px;
-}
-
-.cart-summary .total-price {
-    font-weight: bold;
+.category {
+    display: flex;
+    font-size: 12px;
     color: orange;
-}
-
-.btn-order {
-    width: 100%;
-    padding: 15px 0;
-    background-color: orange;
-    border: none;
-    color: white;
-    font-size: 16px;
+    padding: 10px 20px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.btn-order:hover {
-    background-color: darkorange;
+.category:hover {
+    background-color: orange;
+    color: white;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .pizza-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .pizza-item {
-        width: 80%;
-    }
-
-    main {
-        flex-direction: column;
-    }
-
-    .cart {
-        margin-left: 0;
-        margin-top: 20px;
-    }
+.category.active {
+    background-color: orange;
+    color: white;
 }
+
 .dot-line{
     margin-top: 5px;
     margin-bottom: 10px;
 }
-.dot-line::after {
-    content: "";
-    display: block;
-    width: 100%;
+.dot-line {
     height: 1px;
-    background-image: radial-gradient(white 9%, transparent 0%);
-    background-size: 5px 1px;
+    background: transparent;
+    box-shadow: 0px 1px 0px 0px white;
 }
 .lower-bage{
     clip-path: polygon(0 0, 50% 9%, 100% 0, 100% 100%, 0 100%);
