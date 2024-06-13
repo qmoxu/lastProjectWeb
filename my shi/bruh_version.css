@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f8f8f8;
+    background-color: rgb(255, 252, 244);
 }
 .header {
     background-color: rgba(0, 0, 0, 0.7);
@@ -9,8 +9,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
     height: 70px;
+    width: calc(100% - 330px);
+    position: fixed;
+    z-index: 1;
 }
 
 .logo {
@@ -89,20 +91,22 @@ body {
 .delivery {
     font-size: 16px;
 }
-@media (max-width: 700px) {
+@media (max-width: 1130px) {
     .delivery{
         display: none;
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 915px) {
     .hours{
         display: none;
     }
 }
 main {
-    display: flex;
     justify-content: space-between;
     flex-direction: column;
+    margin-right: 330px;
+    margin-top: 90px;
+    position: absolute;
 }
 
 .pizza-menu {
@@ -115,29 +119,38 @@ main {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
     margin: 10px;
     text-align: center;
     position: relative;
     padding: 20px;
+    width:300px;
 }
 
-.pizza-labels {
+.pizza-label-new {
     position: absolute;
-    top: -10px;
-    right: -10px;
-}
-
-.pizza-label {
-    background-color: red;
+    padding: 10px;
     color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    margin: 5px 0;
-    display: inline-block;
-    z-index: 0;
+    background-color: #cb5b51;
+    border-radius: 15px;
+    width: min-content;
+    height:min-content;
+
+    right: -15px;
+    top: -15px;
+
+}
+.pizza-label-popular {
+    position: absolute;
+    padding: 10px;
+    color: white;
+    background-color: forestgreen;
+    border-radius: 15px;
+    width: min-content;
+    height:min-content;
+
+    right: -15px;
+    top: -15px;
+
 }
 
 .pizza-header {
@@ -188,7 +201,7 @@ main {
 }
 
 .pizza-size-diameter::before {
-    content: "\D8"; /* символ діаметру */
+    content: "\D8";
     margin-right: 3px;
 }
 
@@ -253,7 +266,7 @@ main {
     font-size: 12px;
     color: orange;
     padding: 10px 20px;
-    background-color: rgb(248, 248, 248);
+    background-color: rgb(255, 252, 244);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
@@ -291,4 +304,257 @@ main {
     height: 90px;
     width: 70px;
     bottom:0
+}
+.order-summary-header {
+    flex-shrink: 0;
+    height: 90px;
+    flex-direction: row;
+    text-align: center;
+    align-content: center;
+
+}
+
+.order-summary-header div {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    display: flex;
+
+    gap: 5px;
+
+}
+
+.amount-in-order {
+
+    color: white;
+
+    border-radius: 20px;
+    padding: 5px;
+    padding-right: 8px;
+    padding-left: 8px;
+
+    background: #ff9900;
+
+}
+
+.order-summary-header div h3{
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.clear-order {
+
+    margin-left: auto;
+    font-size: 12px;
+
+    align-content: center;
+
+    color:#8d8d8d
+
+}
+
+
+
+.order-summary {
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 310px;
+
+    background-color: #f8f8f8;
+
+    border-left: 1px solid #ccc;
+
+    right: 0px;
+
+    position: fixed;
+    height: 100%;
+
+}
+.buy-section {
+
+    padding: 20px;
+
+    margin-top: auto;
+
+}
+
+.order-list {
+
+    overflow-y:auto;
+    overflow-x: hidden;
+
+    border-top: solid 1px #cccccc;
+    border-bottom: solid 1px #cccccc;
+
+
+    margin: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #f5f5f5;
+
+}
+
+.order-item {
+
+    position:relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    text-align: left;
+    color:#ff9900;
+    font-size:20px;
+
+    flex-direction: column;
+
+
+    border-bottom: solid 1px #cccccc;
+
+}
+
+#item-controls {
+
+    width:65%;
+    height: 20px;
+    margin-bottom: 10px;
+
+    display: flex;
+
+}
+
+.summary-item-delete-button {
+
+    margin-left: auto;
+
+}
+
+.item-name {
+    padding: 10px;
+}
+
+.order-item div img {
+
+    block-size: 15px;
+
+}
+
+.order-item div button {
+
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+
+    text-align: center;
+
+    margin-top: 0px;
+
+    color: white;
+
+    border-radius: 20px;
+    padding: 10px;
+    padding-right: 8px;
+    padding-left: 8px;
+
+
+}
+
+.order-item div {
+    display: inline-block;
+    flex-direction: row;
+
+    align-items: center;
+
+
+    padding: 10px;
+
+    color:black;
+    font-size: medium;
+
+}
+
+.order-img {
+
+    position:absolute;
+
+    right:-50px;
+    top:10px;
+    width:100px;
+    height:100px;
+
+
+}
+
+.order-summary h3 {
+    margin-top: 0;
+}
+
+.order-summary ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+.order-summary p {
+    font-weight: bold;
+}
+
+.order-summary button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+.dec{
+    font-size: 15px;
+    background:red ;
+}
+.buy{
+    font-size: 15px;
+    background:green;
+}
+.order{
+    background:orange;
+}
+.summary-item-delete-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.summary-item-delete-button:hover {
+    background-color: #f0f0f0;
+    border-color: #ff9900;
+}
+
+.summary-item-delete-button:active {
+    background-color: #ff9900;
+    color: white;
+    border-color: #ff9900;
+}
+
+.summary-item-delete-button::before {
+    content: '✕';
+    color: #ff9900;
+    font-size: 15px;
+    line-height: 1;
 }
