@@ -120,24 +120,27 @@ main {
     margin: 10px;
     text-align: center;
     position: relative;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
 .pizza-labels {
-    position: absolute;
+    position: relative;
     top: -10px;
-    right: -10px;
+    right: -270px;
+    gap: 10px;
+    z-index: auto;
 }
 
-.pizza-label {
-    background-color: red;
+.pizza-label.new {
+    background-color: #d62828;
     color: white;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 12px;
-    margin: 5px 0;
-    display: inline-block;
-    z-index: 0;
+}
+
+.pizza-label.popular {
+    background-color: #16a34a;
 }
 
 .pizza-header {
@@ -291,4 +294,49 @@ main {
     height: 90px;
     width: 70px;
     bottom:0
+}
+/* Стилі для бічної панелі (меню) */
+.order-summary {
+    width: 25%; /* Ширина бічної панелі */
+    float: right; /* Вирівнюємо праворуч */
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.order-summary-header {
+    width: 25%;
+    background-color: #f0f0f0;
+    margin-right: -10px;
+}
+
+.order-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-properties {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.item-properties img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.buy-section {
+    margin-top: 20px;
+    text-align: center;
 }
