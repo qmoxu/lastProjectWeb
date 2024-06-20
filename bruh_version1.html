@@ -6,6 +6,9 @@
     <title>Піцерія НаУКМА</title>
     <link rel="stylesheet" href="bruh_version1.css">
     <script type="module" src="bruh_version1.js"></script>
+    <link href="https://cdn.webdatarocks.com/latest/webdatarocks.min.css" rel="stylesheet"/>
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js"></script>
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script>
 </head>
 <body>
 <div class="header">
@@ -14,15 +17,18 @@
     </div>
     <div class="header-content">
         <div class="contact-info">
-            <span class="phone" >(044) 222 5 222</span>
+            <span class="phone">(044) 222 5 222</span>
             <span class="hours">24 години / 7 днів на тиждень</span>
-            <span class ="delivery">Безкоштовна доставка піци</span>
+            <span class="delivery">Безкоштовна доставка піци</span>
             <div class="login">
                 <button>Вхід</button>
             </div>
         </div>
         <div class="line"></div>
-        <div class="pizza-header">Піца</div>
+        <div class="pizza-header-container">
+            <div class="pizza-header">Піца</div>
+            <button class="table-button">Таблиця</button>
+        </div>
     </div>
 </div>
 
@@ -363,5 +369,14 @@
         </div>
         -20%
     </div>
+
+<div id="tableOverlay" class="table-overlay">
+    <div class="table-content">
+        <button id="closeTableButton" class="close-table-button">✕</button>
+        <p>Звіт по обраним піцам</p>
+        <div id="pizzaPivotTable"></div>
+    </div>
+</div>
+
 </body>
 </html>

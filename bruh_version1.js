@@ -10,9 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //  quantity
     //  image
     
-    let itemsInCart = [
-
-    ];
+    let itemsInCart = [];
 
     const order_list = document.querySelector('.order-list');
     const menu_list = document.querySelector('.pizza-menu');
@@ -323,4 +321,49 @@ document.addEventListener("DOMContentLoaded", function() {
     addFilterListers();
     updateMenu(pizza_info);
 
+
+
+    const tableButton = document.querySelector('.table-button');
+    const tableOverlay = document.getElementById('tableOverlay');
+    const closeTableButton = document.getElementById('closeTableButton');
+
+    tableButton.addEventListener('click', function() {
+        tableOverlay.style.display = 'flex';
+        createPizzaReport();
+    });
+
+    closeTableButton.addEventListener('click', function() {
+        tableOverlay.style.display = 'none';
+    });
+
+    function createPizzaReport() {
+        const reportData = itemsInCart.map(item => ({
+            назва: item.name,
+            розмір: item.size,
+            вага: item.weight,
+            ціна: item.price,
+            кількість: item.quantity,
+            сума: item.price * item.quantity
+        }));
+
+        new WebDataRocks({
+            container: "#pizzaPivotTable",
+            toolbar: true,
+            report: {
+                dataSource: {
+                    data: reportData
+                },
+                slice: {
+                    rows: [
+                        { uniqueName: "назва" },
+                        { uniqueName: "розмір" }
+                    ],
+                    measures: [
+                        { uniqueName: "кількість", aggregation: "sum" },
+                        { uniqueName: "сума", aggregation: "sum" }
+                    ]
+                }
+            }
+        });
+    }
 });
