@@ -226,11 +226,10 @@ main {
 
 .pizza-size-diameter::before {
     content: "\D8";
-    margin-right: 3px;
+    margin-right: 10px;
 }
 
 .pizza-size-weight::before {
- /* символ ваги */
     content: "\2696";
     margin-right: 3px;
 }
@@ -399,7 +398,7 @@ main {
 
     border-left: 1px solid #ccc;
 
-    right: 0px;
+    right: 0;
 
     position: fixed;
     height: 100%;
@@ -623,4 +622,10 @@ main {
 #pizzaPivotTable {
     width: 100%;
     height: calc(100% - 60px); /* Залишаємо місце для заголовка */
+}
+
+#zvit{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
 }
