@@ -338,12 +338,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function createPizzaReport() {
         const reportData = itemsInCart.map(item => ({
-            назва: item.name,
-            розмір: item.size,
-            вага: item.weight,
-            ціна: item.price,
-            кількість: item.quantity,
-            сума: item.price * item.quantity
+            name: item.name,
+            size: item.size,
+            weight: item.weight,
+            price: item.price,
+            quantity: item.quantity,
+            sum: item.price * item.quantity
         }));
 
         new WebDataRocks({
@@ -355,12 +355,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 slice: {
                     rows: [
-                        { uniqueName: "назва" },
-                        { uniqueName: "розмір" }
+                        { uniqueName: "name" },
+                        { uniqueName: "size" }
                     ],
                     measures: [
-                        { uniqueName: "кількість", aggregation: "sum" },
-                        { uniqueName: "сума", aggregation: "sum" }
+                        { uniqueName: "quantity"},
+                        { uniqueName: "sum"},
+                        { uniqueName: "price"},
+                        { uniqueName: "weight"}
                     ]
                 }
             }
