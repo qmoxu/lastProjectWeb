@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Піцерія НаУКМА</title>
-    <link rel="stylesheet" href="bruh_version.css">
+    <link rel="stylesheet" href="bruh_version1.css">
+    <script type="module" src="bruh_version1.js"></script>
+    <link href="https://cdn.webdatarocks.com/latest/webdatarocks.min.css" rel="stylesheet"/>
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js"></script>
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script>
 </head>
 <body>
 <div class="header">
@@ -13,20 +17,73 @@
     </div>
     <div class="header-content">
         <div class="contact-info">
-            <span class="phone" >(044) 222 5 222</span>
+            <span class="phone">(044) 222 5 222</span>
             <span class="hours">24 години / 7 днів на тиждень</span>
-            <span class ="delivery">Безкоштовна доставка піци</span>
+            <span class="delivery">Безкоштовна доставка піци</span>
             <div class="login">
                 <button>Вхід</button>
             </div>
         </div>
         <div class="line"></div>
-        <div class="pizza-header">Піца</div>
+        <div class="pizza-header-container">
+            <div class="pizza-header">Піца</div>
+            <button class="table-button">Таблиця</button>
+        </div>
     </div>
 </div>
 
 
 <main>
+
+        <template id="cart-item-template">
+
+            <li class="order-item">
+                <span class="item-name"></span>
+                <div class="item-properties"><img src="size-icon.svg"></img> <span id="size"></span> <img src="weight.svg"> <span id="weight"></span></div>
+                <div id="item-controls">
+                    <span id="total-pizza-type-cost"></span>
+                    <div>
+                        <button class="buy">+</button>
+                        <span class="menu-amount"></span>
+                        <button class="dec">-</button>
+                    </div>
+                    <button class="summary-item-delete-button">X</button>
+                </div>
+                <img class="order-img" src="">
+            </li>
+
+        </template>
+
+        <template id="menu-item-template">
+
+            <div class="pizza-item">
+                <div class="pizza-header">
+                    <img class="pizza-icon">
+                    <h2 class="pizza-title"></h2>
+                    <p class="pizza-type"></p>
+                </div>
+                <div class="pizza-content">
+                    <p></p>
+                </div>
+                <div class="pizza-sizes">             
+                </div>
+            </div>
+
+        </template>
+
+        <template id="pizza-size-option-template">
+
+            <div class="pizza-size">
+                <span class="pizza-size-diameter"></span>
+                <span class="pizza-size-weight"><img src="weight.svg" alt="weight"></span>
+                <span class="pizza-size-price"></span>
+                <span class="pizza-size-hrn">грн</span>
+                <button class="pizza-size-button">Купити</button>
+            </div>
+
+        </template>
+
+
         <div class="list">
             <div class="all-pizzas">
                 <h1>Усі піци <span class="pizza-count">8</span></h1>
@@ -44,7 +101,7 @@
                 <div class="pizza-item">
                     <span class="pizza-label-new">Нова</span>
                     <div class="pizza-header">
-                        <img src="pizza_1.jpg" alt="Імпреза" class="pizza-icon">
+                        <img src="images/pizza_1.jpg" alt="Імпреза" class="pizza-icon">
                         <h2 class="pizza-title">Імпреза</h2>
                         <p class="pizza-type">М'ясна піца</p>
                     </div>
@@ -71,7 +128,7 @@
                 <div class="pizza-item">
                     <span class="pizza-label-popular">Популярна</span>
                     <div class="pizza-header">
-                        <img src="pizza_2.jpg" alt="BBQ" class="pizza-icon">
+                        <img src="images/pizza_2.jpg" alt="BBQ" class="pizza-icon">
                         <h2 class="pizza-title">BBQ</h2>
                         <p class="pizza-type">М'ясна піца</p>
                     </div>
@@ -97,7 +154,7 @@
                 </div>
                 <div class="pizza-item">
                     <div class="pizza-header">
-                        <img src="pizza_5.jpg" alt="Сициліано" class="pizza-icon">
+                        <img src="images/pizza_5.jpg" alt="Сициліано" class="pizza-icon">
                         <h2 class="pizza-title">Сициліано</h2>
                         <p class="pizza-type">М'ясна піца</p>
                     </div>
@@ -124,7 +181,7 @@
 
                 <div class="pizza-item">
                     <div class="pizza-header">
-                        <img src="pizza_1.jpg" alt="Міксовий поло" class="pizza-icon">
+                        <img src="images/pizza_1.jpg" alt="Міксовий поло" class="pizza-icon">
                         <h2 class="pizza-title">Міксовий поло</h2>
                         <p class="pizza-type">М'ясна піца</p>
                     </div>
@@ -151,7 +208,7 @@
                 </div>
                 <div class="pizza-item">
                     <div class="pizza-header">
-                        <img src="pizza_3.jpg" alt="Маргарита" class="pizza-icon">
+                        <img src="images/pizza_3.jpg" alt="Маргарита" class="pizza-icon">
                         <h2 class="pizza-title">Маргарита</h2>
                         <p class="pizza-type">Вега піца</p>
                     </div>
@@ -171,7 +228,7 @@
 
                 <div class="pizza-item">
                     <div class="pizza-header">
-                        <img src="pizza_6.jpg" alt="Мікс смаків" class="pizza-icon">
+                        <img src="images/pizza_6.jpg" alt="Мікс смаків" class="pizza-icon">
                         <h2 class="pizza-title">Мікс смаків</h2>
                         <p class="pizza-type">М'ясна піца</p>
                     </div>
@@ -199,7 +256,7 @@
                 <!-- Піца "Дольче Маре" -->
                 <div class="pizza-item">
                     <div class="pizza-header">
-                        <img src="pizza_8.jpg" alt="Дольче Маре" class="pizza-icon">
+                        <img src="images/pizza_8.jpg" alt="Дольче Маре" class="pizza-icon">
                         <h2 class="pizza-title">Дольче Маре</h2>
                         <p class="pizza-type">Морська піца</p>
                     </div>
@@ -218,7 +275,7 @@
                 </div>
                 <div class="pizza-item">
                     <div class="pizza-header">
-                        <img src="pizza_4.jpg" alt="Россо Густо" class="pizza-icon">
+                        <img src="images/pizza_4.jpg" alt="Россо Густо" class="pizza-icon">
                         <h2 class="pizza-title">Россо Густо</h2>
                         <p class="pizza-type">Морська піца</p>
                     </div>
@@ -260,7 +317,7 @@
             <span class="item-name">BBQ (Мала)</span>
             <div class="item-properties"><img src="size-icon.svg"></img> <span>30</span> <img src="weight.svg"> <span>460</span></div>
             <div id="item-controls">
-                <span>556 грн</span>
+                <span>139 грн</span>
                 <div>
                     <button class="buy">+</button>
                     <span class=" menu-amount">1</span>
@@ -268,10 +325,9 @@
                 </div>
                 <button class="summary-item-delete-button">X</button>
             </div>
-            <img class="order-img" src="pizza_2.jpg">
+            <img class="order-img" src="images/pizza_2.jpg">
         </li>
         <li class="order-item">
-
             <span class="item-name">Россо Густо (Мала)</span>
             <div class="item-properties"><img src="size-icon.svg"></img> <span>30</span> <img src="weight.svg"> <span>460</span></div>
             <div id="item-controls">
@@ -283,7 +339,7 @@
                 </div>
                 <button class="summary-item-delete-button">X</button>
             </div>
-            <img class="order-img" src="pizza_4.jpg">
+            <img class="order-img" src="images/pizza_4.jpg">
 
         </li>
         <li class="order-item">
@@ -299,11 +355,11 @@
                 </div>
                 <button class="summary-item-delete-button">X</button>
             </div>
-            <img class="order-img" src="pizza_1.jpg">
+            <img class="order-img" src="images/pizza_1.jpg">
         </li>
     </ul>
     <div class="buy-section">
-        <p>Сума замовлення: 924 грн</p>
+        <p>Сума замовлення: <span id="cart-price-sum"></span> грн</p>
         <button class="order">Замовити</button>
     </div>
 </aside>
@@ -313,5 +369,14 @@
         </div>
         -20%
     </div>
+
+<div id="tableOverlay" class="table-overlay">
+    <div class="table-content">
+        <button id="closeTableButton" class="close-table-button">✕</button>
+        <p id ="zvit">Звіт по обраним піцам</p>
+        <div id="pizzaPivotTable"></div>
+    </div>
+</div>
+
 </body>
 </html>
