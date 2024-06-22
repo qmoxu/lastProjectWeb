@@ -355,15 +355,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 slice: {
                     rows: [
-                        { uniqueName: "name" },
-                        { uniqueName: "size" }
+                        { uniqueName: "name" }
                     ],
-                    measures: [
-                        { uniqueName: "quantity"},
-                        { uniqueName: "sum"},
-                        { uniqueName: "price"},
-                        { uniqueName: "weight"}
-                    ]
+                    columns: [
+                        { uniqueName: "weight" },
+                        { uniqueName: "size" },
+                        { uniqueName: "price" },
+                        { uniqueName: "quantity" },
+                        { uniqueName: "sum" }
+                    ],
+                },
+                options: {
+                    grid: {
+                        type: "flat",
+                        grandTotalsPosition: "bottom"
+                    }
                 }
             }
         });
